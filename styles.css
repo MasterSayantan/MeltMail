@@ -1,0 +1,80 @@
+/* Neon glow text effect */
+.neon-text {
+  color: #39ff14;
+  text-shadow:
+    0 0 5px #39ff14,
+    0 0 10px #39ff14,
+    0 0 20px #39ff14,
+    0 0 40px #0fa,
+    0 0 80px #0fa;
+}
+
+.neon-glow {
+  box-shadow:
+    0 0 5px #39ff14,
+    0 0 10px #39ff14,
+    0 0 20px #39ff14,
+    0 0 40px #0fa,
+    0 0 80px #0fa;
+}
+
+/* Scrollbar styling for inbox */
+#inbox-section::-webkit-scrollbar {
+  width: 8px;
+}
+
+#inbox-section::-webkit-scrollbar-track {
+  background: #1a202c;
+}
+
+#inbox-section::-webkit-scrollbar-thumb {
+  background: #39ff14;
+  border-radius: 4px;
+}
+
+/* Background gradient animation */
+.neon-bg {
+  background: linear-gradient(270deg, #0f0f0f, #001100, #0f0f0f);
+  background-size: 600% 600%;
+  animation: neonGradient 15s ease infinite;
+}
+
+@keyframes neonGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Neon button style */
+.neon-button {
+  transition: box-shadow 0.3s ease;
+}
+
+.neon-button:hover {
+  box-shadow:
+    0 0 8px #39ff14,
+    0 0 16px #39ff14,
+    0 0 24px #0fa,
+    0 0 32px #0fa;
+}
+
+/* Input field neon glow */
+input[type="text"] {
+  border: 1px solid #39ff14;
+  transition: box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus {
+  box-shadow:
+    0 0 8px #39ff14,
+    0 0 16px #39ff14,
+    0 0 24px #0fa,
+    0 0 32px #0fa;
+  outline: none;
+}
