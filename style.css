@@ -1,0 +1,222 @@
+/* Cosmic background with animated stars */
+.cosmic-bg {
+    background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+/* Animated stars */
+.cosmic-bg::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E"),
+        linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.5));
+    z-index: -1;
+    animation: stars 200s linear infinite;
+}
+
+@keyframes stars {
+    0% { background-position: 0 0, 0 0; }
+    100% { background-position: -1000px 1000px, 0 50px; }
+}
+
+/* Comet animation */
+@keyframes comet {
+    0% {
+        transform: translateX(-100px) translateY(-100px) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(calc(100vw + 100px)) translateY(calc(100vh + 100px)) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+.comet {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 50%;
+    box-shadow: 0 0 10px 2px rgba(255,255,255,0.8);
+    animation: comet 10s linear infinite;
+    z-index: -1;
+}
+
+.comet::before {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.8), transparent);
+    transform: rotate(-45deg);
+    transform-origin: left;
+}
+
+/* Floating animation */
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+.floating {
+    animation: floating 4s ease-in-out infinite;
+}
+
+/* Scrollbar styling */
+.scroll-hidden::-webkit-scrollbar {
+    display: none;
+}
+
+/* Email item styling */
+.email-item {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.email-item:hover {
+    background-color: rgba(75, 85, 99, 0.5);
+}
+
+.email-header {
+    cursor: pointer;
+}
+
+.email-preview {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Full email content styling */
+.email-full-content {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.email-full-content pre {
+    white-space: pre-wrap;
+    font-family: inherit;
+    background: rgba(0,0,0,0.2);
+    padding: 8px;
+    border-radius: 4px;
+}
+
+/* Button styling */
+.email-item button {
+    transition: all 0.2s ease;
+}
+
+.email-item button:hover {
+    color: #39ff14;
+}
+
+/* Toggle switch */
+input:checked ~ .dot {
+    transform: translateX(100%);
+    background-color: #39ff14;
+}
+
+/* Button animations */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(57, 255, 20, 0.7);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(57, 255, 20, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(57, 255, 20, 0);
+    }
+}
+
+.pulse-effect {
+    animation: pulse 2s infinite;
+}
+
+/* Filter button active state */
+.filter-btn.active {
+    background: rgba(57, 255, 20, 0.2) !important;
+    border-color: #39ff14 !important;
+    color: #39ff14 !important;
+}
+
+/* Input placeholder color */
+::placeholder {
+    color: #9CA3AF;
+    opacity: 1;
+}
+
+/* Modal entrance animation */
+@keyframes modalEntrance {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+#email-modal > div {
+    animation: modalEntrance 0.3s ease-out forwards;
+}
+
+/* OTP container animation */
+@keyframes otpReveal {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#otp-container {
+    animation: otpReveal 0.5s ease-out forwards;
+}
+
+/* Creator attribution styling */
+.creator-name {
+    position: relative;
+    display: inline-block;
+}
+
+.creator-name::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #39ff14, #0fa);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.creator-name:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
